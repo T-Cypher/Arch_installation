@@ -68,10 +68,13 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 # Download chroot script
-wget http://goo.gl/SdQi6D -o /mnt/chroot.sh
+wget https://raw.github.com/T-Cypher/Arch_installation/master/chroot.sh -o /mnt/chroot.sh
 
 # Chroot and configure
 arch-chroot /mnt /bin/bash -c "chmod u+x chroot.sh && ./chroot.sh"
 
 # Umount all partitions
 umount -R /mnt
+
+# reboot system
+reboot
