@@ -39,7 +39,7 @@ passwd
 
 # install grub
 pacman -S grub os-prober --noconfirm
-grub-install --target=i386-pc --recheck /dev/sdb
+grub-install --recheck /dev/sdb
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # exit from the chroot environment: 
