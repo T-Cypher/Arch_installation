@@ -1,0 +1,37 @@
+# add user "t-cypher"
+useradd -m -g users -G wheel -s /bin/bash t-cypher
+passwd t-cypher
+
+# enable sound by installing alsa
+pacman -S alsa-utils --noconfirm
+alsa-mixer
+
+# set graphical interface
+pacman -S xorg-server xorg-server-utils xorg-xinit --noconfirm
+pacman -S xf86-video-vesa mesa --noconfirm
+pacman -S xf86-video-ati --noconfirm
+
+# install input drivers
+pacman -S xf86-input-synaptics xf86-input-keyboard --noconfirm
+
+# install font
+pacman -S ttf-dejavu --noconfirm
+
+# install sudo
+pacman -S sudo --noconfirm
+nano /etc/sudoers
+
+# refresh pacman's db
+pacman -Syy
+
+# install desktop enviroment - LXDE
+pacman -S lxde  --noconfirm
+
+# enable lxdm to start up on login
+systemctl enable lxdm
+
+# install network manager helper "wicd"
+pacman -S wicd wicd-gtk --noconfirm
+
+#reboot
+reboot
