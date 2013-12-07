@@ -1,0 +1,33 @@
+# list of usual programs
+pacman -S firefox --noconfirm
+pacman -S flashplayer --noconfirm
+pacman -S git --noconfirm
+pacman -S thunderbird --noconfirm
+pacman -S gimp --noconfirm
+pacman -S scrot --noconfirm
+pacman -S truecrypt --noconfirm
+pacman -S xchat --noconfirm
+
+# setting up yaourt
+# -create AUR folder
+mkdir /home/t-cypher/AUR
+
+# -get necessary package -> "package-query"
+cd /home/t-cypher/AUR/
+curl -O https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+tar -xvzf package-query.tar.gz
+cd package-query
+sudo makepkg -s --asroot
+sudo pacman -U package-query*.pkg.tar.xz
+
+# -get necessary package -> "yaourt"
+cd /home/t-cypher/AUR/
+curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+tar -xvzf yaourt.tar.gz
+cd yaourt
+sudo makepkg -s --asroot
+sudo pacman -U yaourt*.pkg.tar.xz
+
+# install software
+yaourt -S lxmed
+yaourt -S dropbox
