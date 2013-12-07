@@ -30,8 +30,15 @@ pacman -S lxde  --noconfirm
 # enable lxdm to start up on login
 systemctl enable lxdm
 
+# install lxde related software
+pacman -S gamin leafpad obconf epdfview upower ntfs-3g --noconfirm
+
+# pcmanfm auto-mounting/trash stuff
+pacman -S gvfs gvfs-smb gvfs-afp d-feet --noconfirm
+
 # install network manager helper "wicd"
 pacman -S wicd wicd-gtk --noconfirm
+pacman -S xfce4-notifyd --noconfirm
 
 #reboot
 reboot
